@@ -1,0 +1,16 @@
+{
+	"[haxe]": {
+		"editor.formatOnSave": true
+	},
+	"files.exclude": {
+		".import": true,
+		".mono": true,
+	},
+	"runOnSave.commands": [
+		{
+			"match": ".hx(ml)?$",
+			"runIn": "vscode",
+			"command": "workbench.action.tasks.build",
+		}
+	]
+}

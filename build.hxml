@@ -1,0 +1,8 @@
+--cs build
+-D net-ver=50
+-D no-compilation
+-D analyzer-optimize
+--class-path scripts
+--library godot
+--macro godot.Godot.buildProject()
+--dce full
