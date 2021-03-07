@@ -1,3 +1,4 @@
+// TODO Math.random() fails at runtime with missing assembly
 abstract Random(UInt) {
 	public static inline function fromRandomSeed():Random {
 		return new Random(Std.int(Date.now().getTime()));

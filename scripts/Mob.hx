@@ -3,7 +3,6 @@ class Mob extends KinematicBody {
 	@:export public var maxSpeed = 18;
 
 	var velocity = Vector3.ZERO;
-	final random = new Random(42);
 
 	override function _Ready() {
 		getNode("VisibilityNotifier").connect("screen_exited", this, "onScreenExit");
@@ -13,7 +12,7 @@ class Mob extends KinematicBody {
 		moveAndSlide(velocity);
 	}
 
-	public function initialize(startPositon:Vector3, playerPosition:Vector3) {
+	public function initialize(startPositon:Vector3, playerPosition:Vector3, random:Random) {
 		translation = startPositon;
 		lookAt(playerPosition, Vector3.UP);
 		rotateY(random.getFloat() * Math.PI / 2 - Math.PI / 4);

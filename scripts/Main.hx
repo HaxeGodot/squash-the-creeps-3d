@@ -17,7 +17,7 @@ class Main extends Node {
 		spawnLocation.unitOffset = random.getFloat();
 
 		final mob = cast(mobScene.instance(), Mob);
-		mob.initialize(spawnLocation.translation, player.translation);
 		addChild(mob);
+		mob.initialize(spawnLocation.translation, player.transform.origin, random);
 	}
 }
