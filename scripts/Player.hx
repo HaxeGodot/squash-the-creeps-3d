@@ -2,7 +2,12 @@ class Player extends KinematicBody {
 	@:export public var speed = 14;
 	@:export public var fallAcceleration = 75;
 
+	var pivot:Spatial;
 	var velocity = Vector3.ZERO;
+
+	override function _Ready() {
+		pivot = cast(getNode("Pivot"), Spatial);
+	}
 
 	override function _PhysicsProcess(delta:Single) {
 		var direction = Vector3.ZERO;
@@ -22,7 +27,7 @@ class Player extends KinematicBody {
 
 		if (direction != Vector3.ZERO) {
 			direction = direction.normalized();
-			cast(getNode("Pivot"), Spatial).lookAt(translation + direction, Vector3.UP);
+			pivot.lookAt(translation + direction, Vector3.UP);
 		}
 
 		velocity.x = direction.x * speed;
