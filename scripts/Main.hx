@@ -3,8 +3,6 @@ class Main extends Node {
 	var spawnLocation:PathFollow;
 	var player:Player;
 
-	final random = new Random(42);
-
 	override function _Ready() {
 		mobScene = cast(ResourceLoader.load("res://scenes/mob.tscn"), PackedScene);
 		spawnLocation = cast(getNode("SpawnPath/SpawnLocation"), PathFollow);
@@ -14,10 +12,10 @@ class Main extends Node {
 	}
 
 	function onMobTimer() {
-		spawnLocation.unitOffset = random.getFloat();
+		spawnLocation.unitOffset = Math.random();
 
 		final mob = cast(mobScene.instance(), Mob);
 		addChild(mob);
-		mob.initialize(spawnLocation.translation, player.transform.origin, random);
+		mob.initialize(spawnLocation.translation, player.transform.origin);
 	}
 }

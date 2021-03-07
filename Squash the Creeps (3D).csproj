@@ -1,7 +1,7 @@
 <Project Sdk="Godot.NET.Sdk/3.2.3">
   <PropertyGroup>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <TargetFramework>net5</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <RootNamespace>SquashtheCreeps3D</RootNamespace>
   </PropertyGroup>
 </Project>
