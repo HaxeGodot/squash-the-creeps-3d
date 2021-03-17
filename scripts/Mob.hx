@@ -2,6 +2,8 @@ class Mob extends KinematicBody {
 	@:export public var minSpeed = 10;
 	@:export public var maxSpeed = 18;
 
+	public var onSquashed:Array<() -> Void> = [];
+
 	var velocity = Vector3.ZERO;
 
 	override function _Ready() {
@@ -22,6 +24,13 @@ class Mob extends KinematicBody {
 	}
 
 	function onScreenExit() {
+		queueFree();
+	}
+
+	public function squash() {
+		for (fn in onSquashed) {
+			fn();
+		}
 		queueFree();
 	}
 }

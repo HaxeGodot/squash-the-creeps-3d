@@ -8,7 +8,9 @@ class Main extends Node {
 		spawnLocation = cast(getNode("SpawnPath/SpawnLocation"), PathFollow);
 		player = cast(getNode("Player"), Player);
 
-		getNode("MobTimer").connect("timeout", this, "onMobTimer");
+		final mobTimer = cast(getNode("MobTimer"), Timer);
+		mobTimer.connect("timeout", this, "onMobTimer");
+		player.onHit.push(() -> mobTimer.stop());
 	}
 
 	function onMobTimer() {

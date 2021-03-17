@@ -5,4 +5,4 @@
 --class-path scripts
 --library godot
 --macro godot.Godot.buildProject()
---dce full
+--dce std
