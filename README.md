@@ -1,8 +1,10 @@
-# Haxe Godot Sample
+# Squash the Creeps 3D
 
-The [your first 3D game](https://docs.godotengine.org/en/latest/getting_started/first_3d_game/index.html) tutorial of Godot's documentation in Haxe using the [haxe-godot](https://github.com/ibilon/haxe-godot/) library.
+The [your first 3D game](https://docs.godotengine.org/en/latest/getting_started/first_3d_game/index.html) tutorial of Godot's documentation in Haxe using the [haxe godot externs](https://github.com/HaxeGodot/godot/).
 
 Run `haxe build.hxml` to compile the Haxe code, then use the Godot engine to compile the project.
+
+VSCode is configured to compile the Haxe code on save, to have a workflow similar to using C# with Godot.
 
 ## License
 
