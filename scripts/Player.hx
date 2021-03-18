@@ -6,10 +6,12 @@ class Player extends KinematicBody {
 
 	public var onHit:Array<() -> Void> = [];
 
+	var animationPlayer:AnimationPlayer;
 	var pivot:Spatial;
 	var velocity = Vector3.ZERO;
 
 	override function _Ready() {
+		animationPlayer = cast(getNode("AnimationPlayer"), AnimationPlayer);
 		pivot = cast(getNode("Pivot"), Spatial);
 		getNode("MobDetector").connect("body_entered", this, "onMobDetected");
 	}
@@ -33,6 +35,9 @@ class Player extends KinematicBody {
 		if (direction != Vector3.ZERO) {
 			direction = direction.normalized();
 			pivot.lookAt(translation + direction, Vector3.UP);
+			animationPlayer.playbackSpeed = 4;
+		} else {
+			animationPlayer.playbackSpeed = 1;
 		}
 
 		if (isOnFloor() && Input.isActionJustPressed("jump")) {
@@ -56,6 +61,8 @@ class Player extends KinematicBody {
 				}
 			}
 		}
+
+		pivot.rotation = new Vector3(Math.PI / 6 * velocity.y / jumpImpulse, pivot.rotation.y, pivot.rotation.z);
 	}
 
 	function onMobDetected(body:KinematicBody) {

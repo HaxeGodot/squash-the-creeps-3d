@@ -21,6 +21,7 @@ class Mob extends KinematicBody {
 		final randomSpeed = Math.random() * (maxSpeed - minSpeed) + minSpeed;
 		velocity = Vector3.FORWARD * randomSpeed;
 		velocity = velocity.rotated(Vector3.UP, rotation.y);
+		cast(getNode("AnimationPlayer"), AnimationPlayer).playbackSpeed = randomSpeed / minSpeed;
 	}
 
 	function onScreenExit() {
