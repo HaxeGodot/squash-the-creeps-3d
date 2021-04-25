@@ -31,6 +31,9 @@ default_font = SubResource( 6 )
 
 [node name="Main" type="Node"]
 script = ExtResource( 2 )
+__meta__ = {
+"haxe_script": "res://scripts/Main.hx"
+}
 
 [node name="Ground" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
@@ -106,6 +109,10 @@ margin_bottom = 39.0
 custom_colors/font_color = Color( 0.2, 0.184314, 0.215686, 1 )
 text = "Score: 0"
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"haxe_script": "res://scripts/Score.hx"
+}
 
 [node name="Retry" type="ColorRect" parent="UserInterface"]
 anchor_right = 1.0

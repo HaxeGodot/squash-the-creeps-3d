@@ -1,6 +1,12 @@
+![](https://raw.github.com/HaxeGodot/godot/main/.github/logo.png)
+
+[haxe externs](https://github.com/HaxeGodot/godot) | [editor plugin](https://github.com/HaxeGodot/editor-plugin) | [demo](https://github.com/HaxeGodot/squash-the-creeps-3d) | [api doc](https://haxegodot.github.io/godot/) | [discussions](https://github.com/HaxeGodot/godot/discussions)
+
 # Squash the Creeps 3D
 
 The [your first 3D game](https://docs.godotengine.org/en/latest/getting_started/first_3d_game/index.html) tutorial of Godot's documentation in Haxe using the [haxe godot externs](https://github.com/HaxeGodot/godot/).
+
+The [editor plugin](https://github.com/HaxeGodot/editor-plugin) is a submodule, either clone recursively or run `git submodule update --init` to download it.
 
 Run `haxe build.hxml` to compile the Haxe code, then use the Godot engine to compile the project.
 

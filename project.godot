@@ -8,9 +8,32 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "EditorPlugin",
+"class": "HaxePlugin",
+"language": "GDScript",
+"path": "res://addons/haxe/scripts/haxe.gd"
+}, {
+"base": "Reference",
+"class": "HaxePluginConstants",
+"language": "GDScript",
+"path": "res://addons/haxe/scripts/constants.gd"
+}, {
+"base": "EditorProperty",
+"class": "HaxePluginEditorProperty",
+"language": "GDScript",
+"path": "res://addons/haxe/scripts/editor_property.gd"
+}, {
+"base": "EditorInspectorPlugin",
+"class": "HaxePluginInspectorPlugin",
+"language": "GDScript",
+"path": "res://addons/haxe/scripts/inspector_plugin.gd"
+} ]
 _global_script_class_icons={
-
+"HaxePlugin": "",
+"HaxePluginConstants": "",
+"HaxePluginEditorProperty": "",
+"HaxePluginInspectorPlugin": ""
 }
 
 [application]
@@ -22,6 +45,15 @@ config/icon="res://icon.png"
 [autoload]
 
 MusicPlayer="*res://scenes/musicPlayer.tscn"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "haxe" )
+
+[haxe]
+
+hide_native_script_field=true
+external_editor="VSCode"
 
 [input]
 

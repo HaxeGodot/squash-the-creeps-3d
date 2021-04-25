@@ -41,6 +41,9 @@ tracks/1/keys = {
 [node name="Player" type="KinematicBody"]
 collision_mask = 6
 script = ExtResource( 2 )
+__meta__ = {
+"haxe_script": "res://scripts/Player.hx"
+}
 
 [node name="Pivot" type="Spatial" parent="."]
 

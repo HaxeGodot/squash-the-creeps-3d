@@ -1,7 +1,7 @@
 --cs build
--D net-ver=50
--D no-compilation
--D analyzer-optimize
+--define net-ver=50
+--define no-compilation
+--define analyzer-optimize
 --class-path scripts
 --library godot
 --macro godot.Godot.buildProject()
