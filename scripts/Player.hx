@@ -13,7 +13,7 @@ class Player extends KinematicBody {
 	override function _Ready() {
 		animationPlayer = cast(getNode("AnimationPlayer"), AnimationPlayer);
 		pivot = cast(getNode("Pivot"), Spatial);
-		getNode("MobDetector").connect("body_entered", this, "onMobDetected");
+		cast(getNode("MobDetector"), Area).onBodyEntered.connect(onMobDetected);
 	}
 
 	override function _PhysicsProcess(delta:Single) {
@@ -63,9 +63,12 @@ class Player extends KinematicBody {
 		}
 
 		pivot.rotation = new Vector3(Math.PI / 6 * velocity.y / jumpImpulse, pivot.rotation.y, pivot.rotation.z);
+
+		// TODO error CS1612: Cannot modify the return value of 'Spatial.Rotation' because it is not a variable
+		// pivot.rotation.x = Math.PI / 6 * velocity.y / jumpImpulse;
 	}
 
-	function onMobDetected(body:KinematicBody) {
+	function onMobDetected(body:Node) {
 		for (fn in onHit) {
 			fn();
 		}

@@ -7,7 +7,7 @@ class Mob extends KinematicBody {
 	var velocity = Vector3.ZERO;
 
 	override function _Ready() {
-		getNode("VisibilityNotifier").connect("screen_exited", this, "onScreenExit");
+		cast(getNode("VisibilityNotifier"), VisibilityNotifier).onScreenExited.connect(queueFree);
 	}
 
 	override function _PhysicsProcess(delta:Single) {
@@ -22,10 +22,6 @@ class Mob extends KinematicBody {
 		velocity = Vector3.FORWARD * randomSpeed;
 		velocity = velocity.rotated(Vector3.UP, rotation.y);
 		cast(getNode("AnimationPlayer"), AnimationPlayer).playbackSpeed = randomSpeed / minSpeed;
-	}
-
-	function onScreenExit() {
-		queueFree();
 	}
 
 	public function squash() {

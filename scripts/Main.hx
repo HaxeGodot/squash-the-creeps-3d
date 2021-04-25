@@ -13,7 +13,7 @@ class Main extends Node {
 		retry = cast(getNode("UserInterface/Retry"), ColorRect);
 
 		final mobTimer = cast(getNode("MobTimer"), Timer);
-		mobTimer.connect("timeout", this, "onMobTimer");
+		mobTimer.onTimeout.connect(onMobTimer);
 		player.onHit.push(() -> {
 			mobTimer.stop();
 			retry.show();
