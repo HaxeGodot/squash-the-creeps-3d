@@ -14,7 +14,7 @@ class Main extends Node {
 
 		final mobTimer = cast(getNode("MobTimer"), Timer);
 		mobTimer.onTimeout.connect(onMobTimer);
-		player.onHit.push(() -> {
+		player.onHit.connect(() -> {
 			mobTimer.stop();
 			retry.show();
 		});
@@ -28,7 +28,7 @@ class Main extends Node {
 		final mob = cast(mobScene.instance(), Mob);
 		addChild(mob);
 		mob.initialize(spawnLocation.translation, player.transform.origin);
-		mob.onSquashed.push(score.onMobSquashed);
+		mob.onSquashed.connect(score.onMobSquashed);
 	}
 
 	override function _UnhandledInput(event:InputEvent) {

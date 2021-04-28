@@ -4,7 +4,7 @@ class Player extends KinematicBody {
 	@:export public var jumpImpulse = 20;
 	@:export public var bounceImpulse = 16;
 
-	public var onHit:Array<() -> Void> = [];
+	public var onHit = new CustomSignal<() -> Void>("onHit");
 
 	var animationPlayer:AnimationPlayer;
 	var pivot:Spatial;
@@ -69,9 +69,7 @@ class Player extends KinematicBody {
 	}
 
 	function onMobDetected(body:Node) {
-		for (fn in onHit) {
-			fn();
-		}
+		onHit.emitSignal();
 		queueFree();
 	}
 }
