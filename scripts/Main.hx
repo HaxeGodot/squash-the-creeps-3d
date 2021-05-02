@@ -1,4 +1,5 @@
 class Main extends Node {
+	@:onReady(ResourceLoader.load("res://scenes/mob.tscn").as(PackedScene))
 	var mobScene:PackedScene;
 
 	@:onReadyNode("UserInterface/ScoreLabel")
@@ -14,8 +15,6 @@ class Main extends Node {
 	var retry:ColorRect;
 
 	override function _Ready() {
-		mobScene = ResourceLoader.load("res://scenes/mob.tscn").as(PackedScene);
-
 		final mobTimer = getNode("MobTimer").as(Timer);
 		mobTimer.onTimeout.connect(onMobTimer);
 		player.onHit.connect(() -> {
