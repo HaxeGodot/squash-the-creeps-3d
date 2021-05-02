@@ -15,7 +15,7 @@ class Player extends KinematicBody {
 	var velocity = Vector3.ZERO;
 
 	override function _Ready() {
-		cast(getNode("MobDetector"), Area).onBodyEntered.connect(onMobDetected);
+		getNode("MobDetector").as(Area).onBodyEntered.connect(onMobDetected);
 	}
 
 	override function _PhysicsProcess(delta:Single) {
@@ -54,11 +54,9 @@ class Player extends KinematicBody {
 		for (i in 0...getSlideCount()) {
 			final collision = getSlideCollision(i);
 
-			if (cast(collision.collider, Node).isInGroup("mob")) {
-				final mob = cast(collision.collider, Mob);
-
+			if (collision.collider.as(Node).isInGroup("mob")) {
 				if (Vector3.UP.dot(collision.normal) > 0.1) {
-					mob.squash();
+					collision.collider.as(Mob).squash();
 					velocity.y = bounceImpulse;
 				}
 			}
