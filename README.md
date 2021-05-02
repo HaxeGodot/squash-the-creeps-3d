@@ -4,6 +4,8 @@
 
 # Squash the Creeps 3D
 
+The [main branch](https://github.com/HaxeGodot/squash-the-creeps-3d/tree/main) is compatible with the [haxelib version](https://lib.haxe.org/p/godot/) of the externs, the [dev branch](https://github.com/HaxeGodot/squash-the-creeps-3d/tree/dev) requires the [git version](https://github.com/HaxeGodot/godot).
+
 The [your first 3D game](https://docs.godotengine.org/en/latest/getting_started/first_3d_game/index.html) tutorial of Godot's documentation in Haxe using the [haxe godot externs](https://github.com/HaxeGodot/godot/).
 
 The [editor plugin](https://github.com/HaxeGodot/editor-plugin) is a submodule, either clone recursively or run `git submodule update --init` to download it.
