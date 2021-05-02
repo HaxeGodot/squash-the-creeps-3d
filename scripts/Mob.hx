@@ -2,7 +2,7 @@ class Mob extends KinematicBody {
 	@:export public var minSpeed = 10;
 	@:export public var maxSpeed = 18;
 
-	public var onSquashed = new CustomSignal<Void->Void>("onSquashed");
+	public var onSquashed = new CustomSignal<() -> Void>("onSquashed");
 
 	var velocity = Vector3.ZERO;
 

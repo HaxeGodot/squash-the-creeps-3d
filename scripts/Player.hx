@@ -6,29 +6,31 @@ class Player extends KinematicBody {
 
 	public var onHit = new CustomSignal<() -> Void>("onHit");
 
+	@:onReadyNode("AnimationPlayer")
 	var animationPlayer:AnimationPlayer;
+
+	@:onReadyNode("Pivot")
 	var pivot:Spatial;
+
 	var velocity = Vector3.ZERO;
 
 	override function _Ready() {
-		animationPlayer = cast(getNode("AnimationPlayer"), AnimationPlayer);
-		pivot = cast(getNode("Pivot"), Spatial);
 		cast(getNode("MobDetector"), Area).onBodyEntered.connect(onMobDetected);
 	}
 
 	override function _PhysicsProcess(delta:Single) {
 		var direction = Vector3.ZERO;
 
-		if (Input.isActionPressed("move_right")) {
+		if (Input.isActionPressed(MoveRight)) {
 			direction.x += 1;
 		}
-		if (Input.isActionPressed("move_left")) {
+		if (Input.isActionPressed(MoveLeft)) {
 			direction.x -= 1;
 		}
-		if (Input.isActionPressed("move_backward")) {
+		if (Input.isActionPressed(MoveBackward)) {
 			direction.z += 1;
 		}
-		if (Input.isActionPressed("move_forward")) {
+		if (Input.isActionPressed(MoveForward)) {
 			direction.z -= 1;
 		}
 
@@ -40,7 +42,7 @@ class Player extends KinematicBody {
 			animationPlayer.playbackSpeed = 1;
 		}
 
-		if (isOnFloor() && Input.isActionJustPressed("jump")) {
+		if (isOnFloor() && Input.isActionJustPressed(Jump)) {
 			velocity.y += jumpImpulse;
 		}
 

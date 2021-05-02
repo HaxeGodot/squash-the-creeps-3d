@@ -1,16 +1,20 @@
 class Main extends Node {
 	var mobScene:PackedScene;
+
+	@:onReadyNode("UserInterface/ScoreLabel")
 	var score:Score;
+
+	@:onReadyNode("SpawnPath/SpawnLocation")
 	var spawnLocation:PathFollow;
+
+	@:onReadyNode("Player")
 	var player:Player;
+
+	@:onReadyNode("UserInterface/Retry")
 	var retry:ColorRect;
 
 	override function _Ready() {
 		mobScene = cast(ResourceLoader.load("res://scenes/mob.tscn"), PackedScene);
-		score = cast(getNode("UserInterface/ScoreLabel"), Score);
-		spawnLocation = cast(getNode("SpawnPath/SpawnLocation"), PathFollow);
-		player = cast(getNode("Player"), Player);
-		retry = cast(getNode("UserInterface/Retry"), ColorRect);
 
 		final mobTimer = cast(getNode("MobTimer"), Timer);
 		mobTimer.onTimeout.connect(onMobTimer);
