@@ -6,12 +6,8 @@ class Player extends KinematicBody {
 
 	public var onHit = new CustomSignal<() -> Void>("onHit");
 
-	@:onReadyNode("AnimationPlayer")
-	var animationPlayer:AnimationPlayer;
-
-	@:onReadyNode("Pivot")
-	var pivot:Spatial;
-
+	@:onready var animationPlayer = getNode("AnimationPlayer").as(AnimationPlayer);
+	@:onready var pivot = getNode("Pivot").as(Spatial);
 	var velocity = Vector3.ZERO;
 
 	override function _Ready() {
